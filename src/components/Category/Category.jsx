@@ -32,7 +32,7 @@ function Category({ addToCart, addToWishList }) {
     fetch(`https://fakestoreapi.com/products/category/${categoryName}`)
       .then((res) => res.json())
       .then((json) => setProducts(json));
-  }, []);
+  }, [routerLocation]);
 
   return (
     <div>
