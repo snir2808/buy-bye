@@ -16,6 +16,7 @@ import "./home.css";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    height: 430,
   },
   media: {
     height: 240,
@@ -34,7 +35,7 @@ function Home({ addToCart, addToWishList }) {
   }, []);
   return (
     <div>
-      <h1>Wellcome</h1>
+      <h1>Welcome</h1>
       <h2>We are glad to see you in our store</h2>
       <img src={"./logo.png"} alt="" srcset="" />
       <div>
@@ -44,7 +45,7 @@ function Home({ addToCart, addToWishList }) {
         {products.map((product) => {
           return (
             <div key={product.id} className="card">
-              <Card className={classes.root}>
+              <div className={classes.root}>
                 <CardActionArea
                   onClick={() => history.push(`/product/${product.id}`)}
                 >
@@ -55,7 +56,7 @@ function Home({ addToCart, addToWishList }) {
                     image={product.image}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h6" component="h3">
                       {product.title}
                     </Typography>
                     <Typography
@@ -70,7 +71,7 @@ function Home({ addToCart, addToWishList }) {
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-                <CardActions>
+                <CardActions className="buttonDiv">
                   <Button
                     onClick={() => addToCart(product)}
                     size="small"
@@ -88,7 +89,7 @@ function Home({ addToCart, addToWishList }) {
                     Add to wish list ❤️
                   </Button>
                 </CardActions>
-              </Card>
+              </div>
             </div>
           );
         })}

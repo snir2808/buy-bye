@@ -15,9 +15,10 @@ import "./category.css";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    height: 430,
   },
   media: {
-    height: 240,
+    height: 280,
   },
 });
 
@@ -42,7 +43,7 @@ function Category({ addToCart, addToWishList }) {
         {products.map((product) => {
           return (
             <div key={product.id} className="card">
-              <Card className={classes.root}>
+              <div className={classes.root}>
                 <CardActionArea
                   onClick={() => history.push(`/product/${product.id}`)}
                 >
@@ -53,7 +54,7 @@ function Category({ addToCart, addToWishList }) {
                     image={product.image}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h6" component="h3">
                       {product.title}
                     </Typography>
                     <Typography
@@ -63,9 +64,12 @@ function Category({ addToCart, addToWishList }) {
                     >
                       {product.category}
                     </Typography>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      ${product.price}
+                    </Typography>
                   </CardContent>
                 </CardActionArea>
-                <CardActions>
+                <CardActions className="buttonDiv">
                   <Button
                     onClick={() => addToCart(product)}
                     size="small"
@@ -83,7 +87,7 @@ function Category({ addToCart, addToWishList }) {
                     Add to wish list ❤️
                   </Button>
                 </CardActions>
-              </Card>
+              </div>
             </div>
           );
         })}
